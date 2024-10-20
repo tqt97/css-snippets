@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Day Night Toggle</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="center">
+    <input type="checkbox" name="toggle" id="toggle" />
+    <label for="toggle">
+      <div class="thumb">
+        <div class="rotator">
+          <div class="left side">
+            <img src="../images/moon.png" alt="" />
+          </div>
+          <div class="right side">
+            <img src="../images/sun.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </label>
+    <div class="videos">
+      <video autoplay muted loop class="video">
+        <source src="../images/day.mp4" type="video/mp4" />
+      </video>
+
+      <video autoplay muted loop class="video">
+        <source src="../images/night.mp4" type="video/mp4" />
+      </video>
+    </div>
+  </div>
+</body>
+
+</html>
