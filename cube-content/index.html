@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Content Cube</title>
+  <!--Google Fonts and Icons-->
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+    rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+  <div class="center">
+    <div class="cube-container">
+      <div class="cube">
+        <div class="side front">
+          <div class="logo">
+            <span class="material-icons-outlined">polymer</span>
+            Some Logo
+          </div>
+        </div>
+        <div class="side back">
+          <div class="profile">
+            <div class="head">
+              <div class="title">Someone</div>
+              <img src="../images/avatar 2.png" alt="" draggable="false" />
+            </div>
+            <div class="content">
+              Lorem ipsum dolor sit amet.
+              <br />
+              Lorem ipsum dolor sit amet.
+            </div>
+            <img src="../images/back.png" alt="" draggable="false" />
+          </div>
+        </div>
+        <div class="side left">
+          <div class="about">
+            <div class="title">About</div>
+            <div class="content">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id
+              voluptas culpa, sint harum fuga veniam nihil, aliquam
+              repudiandae rem, ullam dolore ipsum dicta doloremque rerum.
+            </div>
+          </div>
+        </div>
+        <div class="side right">
+          <a href="#">Visit Website</a>
+        </div>
+        <div class="side top">
+          <img src="../images/languages.png" alt="" draggable="false" />
+        </div>
+        <div class="side bottom">
+          <div class="features">
+            <div class="title">Features</div>
+            <ul>
+              <li>Lorem</li>
+              <li>ipsum</li>
+              <li>dolor</li>
+              <li>sit</li>
+              <li>amet</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const cube = document.querySelector(".cube");
+    let isMouseDown = false;
+    let startX, startY;
+    let currentX = 0;
+    let currentY = 0;
+
+    cube.addEventListener("mousedown", (e) => {
+      isMouseDown = true;
+      startX = e.clientX;
+      startY = e.clientY;
+      cube.style.cursor = "grabbing";
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      if (isMouseDown) {
+        const deltaX = e.clientX - startX;
+        const deltaY = e.clientY - startY;
+
+        currentX += deltaY / 2;
+        currentY += deltaX / 2;
+        cube.style.transformOrigin = "center";
+        cube.style.transform =
+          `rotateX(${-currentX}deg) rotateY(${currentY}deg)`;
+
+        startX = e.clientX;
+        startY = e.clientY;
+      }
+    });
+
+    document.addEventListener("mouseup", () => {
+      isMouseDown = false;
+      cube.style.cursor = "grab";
+    });
+  </script>
+</body>
+
+</html>
