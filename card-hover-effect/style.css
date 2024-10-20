@@ -1,0 +1,81 @@
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: rgb(29, 29, 39);
+}
+.center {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.card {
+  width: 220px;
+  height: 310px;
+  background: white;
+  border-radius: 2mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  position: relative;
+  transition: 0.5s;
+}
+.text {
+  font-family: poppins;
+  font-size: 50px;
+  font-weight: 500;
+}
+.card span {
+  font-size: 140px;
+}
+#card1:hover {
+  outline: 5mm solid rgb(5, 113, 220);
+}
+#card2:hover {
+  box-shadow: 10px 10px 0 rgb(5, 113, 220), 20px 20px 0 rgb(4, 75, 146),
+    30px 30px 0 rgb(3, 45, 87);
+}
+#card3::before {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  bottom: -150px;
+  left: -150px;
+  background: rgb(5, 113, 220);
+  border-radius: 50%;
+  transition: 0.5s;
+}
+#card3 span {
+  z-index: 10;
+}
+#card3:hover span {
+  color: white;
+}
+#card3 {
+  overflow: hidden;
+}
+#card3:hover::before {
+  width: 600px;
+  height: 600px;
+}
+#card4::before {
+  position: absolute;
+  content: "";
+  top: 10px;
+  left: 10px;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  outline: 0.5mm solid transparent;
+  border-radius: 2mm;
+  z-index: -1;
+  transition: 0.5s;
+}
+#card4:hover::before {
+  outline: 0.5mm solid white;
+}
