@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Click Effect</title>
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+  <body>
+    <div class="center">
+      <div class="click-effect">
+        <div class="spike" style="--angle: 5deg; --distance: 30px"></div>
+        <div class="spike" style="--angle: 55deg; --distance: 31px"></div>
+        <div class="spike" style="--angle: 75deg; --distance: 27px"></div>
+        <div class="spike" style="--angle: 135deg; --distance: 30px"></div>
+        <div class="spike" style="--angle: 190deg; --distance: 28px"></div>
+        <div class="spike" style="--angle: 210deg; --distance: 32px"></div>
+        <div class="spike" style="--angle: 280deg; --distance: 31px"></div>
+        <div class="spike" style="--angle: 330deg; --distance: 30px"></div>
+      </div>
+      <button type="button" class="btn">Click!</button>
+    </div>
+    <script>
+      let btn = document.querySelector(".btn");
+      let animationInProgress = false;
+      let animationId;
+      btn.addEventListener("click", (e) => {
+        const clickEffect = document.querySelector(".click-effect");
+
+        if (animationInProgress) {
+          clearTimeout(animationId);
+          clickEffect.classList.remove("effect");
+          void clickEffect.offsetWidth;
+        }
+
+        clickEffect.style.top = e.clientY + window.scrollY + "px";
+        clickEffect.style.left = e.clientX + window.scrollX + "px";
+        clickEffect.classList.add("effect");
+        animationInProgress = true;
+
+        animationId = setTimeout(() => {
+          clickEffect.classList.remove("effect");
+          animationInProgress = false;
+        }, 750);
+      });
+    </script>
+  </body>
+</html>
